@@ -1,5 +1,8 @@
 //to do:
 // - make it a playable link
+// - ask user its emojis
+// - create a homepage to start game
+
 player_x = "X"
 player_o = "O"
 x_emoji = "🤍"
