@@ -1,14 +1,16 @@
 //to do:
 // - make it a playable link
 player_x = "X"
-player_y = "Y"
+player_o = "O"
+x_emoji = "🤍"
+o_emoji = "💜"
 
 
 const cells = document.querySelectorAll(".cell");
 const statusText = document.getElementById("status");
 const restartBtn = document.getElementById("restart");
 
-let currentPlayer = "X";
+let currentPlayer = player_x;
 let board = ["", "", "", "", "", "", "", "", ""];
 let running = true;
 
@@ -34,27 +36,29 @@ function cellClicked() {
 
 function updateCell(cell, index) {
   board[index] = currentPlayer;
-  cell.textContent = currentPlayer === "X" ? "❌" : "⭕";
+  cell.textContent = currentPlayer === player_x ? x_emoji : o_emoji;
 }
 
 function changePlayer() {
-  currentPlayer = currentPlayer === "X" ? "O" : "X";
-  statusText.textContent = `Player ${currentPlayer}'s turn`;
+  currentPlayer = currentPlayer === player_x ? player_o : player_x;
+  let currentEmoji = currentPlayer === player_x ? x_emoji : o_emoji;
+  statusText.textContent = `Player ${currentEmoji}'s turn`;
 }
 
 function checkWinner() {
-  let winner = false;
+  let winnerFound = false;
 
   for (const condition of winConditions) {
     const [a, b, c] = condition;
     if (board[a] && board[a] === board[b] && board[a] === board[c]) {
-      winner = true;
+      winnerFound = true;
       break;
     }
   }
 
-  if (winner) {
-    statusText.textContent = `🎉 Player ${currentPlayer} Wins! 🎉`;
+  if (winnerFound) {
+    let winnerEmoji = currentPlayer === player_x ? x_emoji : o_emoji;
+    statusText.textContent = `🎉 Player ${winnerEmoji} Wins! 🎉`;
     running = false;
   } else if (!board.includes("")) {
     statusText.textContent = "It's a Draw! 🤝";
@@ -65,10 +69,10 @@ function checkWinner() {
 }
 
 function restartGame() {
-  currentPlayer = "X";
+  currentPlayer = player_x;
   board = ["", "", "", "", "", "", "", "", ""];
   running = true;
-  statusText.textContent = "Player X's turn";
+  statusText.textContent = `Player ${x_emoji}'s turn`;
   cells.forEach(cell => cell.textContent = "");
 }
 
