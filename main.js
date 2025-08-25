@@ -89,7 +89,7 @@ function restartGame() {
 }
 
 function goHome(){
-  window.location.href = "homepage.html";
+  window.location.href = "index.html";
 }
 
 initGame();
