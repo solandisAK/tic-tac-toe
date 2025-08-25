@@ -57,3 +57,33 @@ h1 {
 #restart:hover {
   background: #ff80c0;
 }
+
+#startBtn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 15px;
+  background: #ffb6d9;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#startBtn:hover {
+  background: #ff80c0;
+}
+
+#home {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 15px;
+  background: #ffb6d9;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#home:hover {
+  background: #ff80c0;
+}

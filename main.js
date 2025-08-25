@@ -13,6 +13,7 @@ o_emoji = "💜"
 const cells = document.querySelectorAll(".cell");
 const statusText = document.getElementById("status");
 const restartBtn = document.getElementById("restart");
+const homeBtn = document.getElementById("home");
 
 let currentPlayer = player_x;
 let board = ["", "", "", "", "", "", "", "", ""];
@@ -30,6 +31,7 @@ const winConditions = [
 function initGame() {
   cells.forEach(cell => cell.addEventListener("click", cellClicked)); //when a cell is clicked, run cellClicked()
   restartBtn.addEventListener("click", restartGame); //if restartBtn is clicked, run restartGame()
+  homeBtn.addEventListener("click", goHome);
 }
 
 function cellClicked() {
@@ -84,6 +86,10 @@ function restartGame() {
   running = true;
   statusText.textContent = `Player ${x_emoji}'s turn`;
   cells.forEach(cell => cell.textContent = "");
+}
+
+function goHome(){
+  window.location.href = "homepage.html";
 }
 
 initGame();
