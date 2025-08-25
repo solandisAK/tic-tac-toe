@@ -8,4 +8,4 @@ A pastel-themed tic tac toe game made with **HTML, CSS, and JS** 💕.
 - Win/draw detection 🏆
 - Restart button 🔄
 
-Made with 💖 by solandis_AK.
+Made with 💖 (and a bit of chat gpt) by solandis_AK.
