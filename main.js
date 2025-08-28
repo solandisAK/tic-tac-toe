@@ -3,6 +3,12 @@
 // - ask user its emojis
 // - create a homepage to start game
 
+//import sounds
+const clickSound = new Audio("sounds/click.wav");
+const winSound = new Audio("sounds/win.mp3");
+const drawSound = new Audio("sounds/draw.wav");
+
+
 //board set up
 player_x = "X"
 player_o = "O"
@@ -49,6 +55,7 @@ function updateCell(cell, index) {
   board[index] = currentPlayer;
   cell.textContent = currentPlayer === player_x ? x_emoji : o_emoji;
   //check if currentPlayer === x, if x is True then put x emoji, otherwise put o emoji
+  clickSound.play();
 }
 
 function changePlayer() {
@@ -69,10 +76,12 @@ function checkWinner() {
   }
 
   if (winnerFound) {
+    winSound.play();
     let winnerEmoji = currentPlayer === player_x ? x_emoji : o_emoji;
     statusText.textContent = `🎉 Player ${winnerEmoji} Wins! 🎉`;
     running = false;
   } else if (!board.includes("")) {
+    drawSound.play();
     statusText.textContent = "It's a Draw! 🤝";
     running = false;
   } else {
