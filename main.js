@@ -8,6 +8,15 @@ const clickSound = new Audio("sounds/click.wav");
 const winSound = new Audio("sounds/win.mp3");
 const drawSound = new Audio("sounds/draw.wav");
 
+// unlock audio on first touch/click
+document.body.addEventListener("click", unlockAudio, { once: true });
+
+function unlockAudio() {
+  clickSound.play().then(() => {
+    clickSound.pause();
+    clickSound.currentTime = 0;
+  });
+}
 
 //board set up
 player_x = "X"
